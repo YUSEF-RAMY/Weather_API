@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 ## 🔑 إعداد الـ API Key
-``bash
+```bash
 API_KEY=your_api_key_here
 ```
 ## ⚙️ إعداد ملف الإعدادات `config/services.php`
