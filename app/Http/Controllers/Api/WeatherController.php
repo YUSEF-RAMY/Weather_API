@@ -40,7 +40,7 @@ class WeatherController extends Controller
 
         $weather['today'] = $today;
         $weather['next_days'] = $nextDays;
-        // dd($today , $nextDays);
+        // dd($today);
 
         return view('welcome', compact('weather'));
     }
@@ -55,6 +55,9 @@ class WeatherController extends Controller
             'aqi' => 'no',
             'alerts' => 'no',
         ]);
+        if (!$response->successful()) {
+            return redirect()->back()->with('city_not_found' , 'This City Is Not Found');
+        }
         $weather = $response->json();
 
         $allDays = $weather['forecast']['forecastday'];
